@@ -1,4 +1,5 @@
 // Header and Footer inclusion for DRY principle
+// Uses configuration from config.js for single source of truth
 (function() {
     'use strict';
     
@@ -6,31 +7,37 @@
     function initHeaderFooter() {
         console.log('Initializing header and footer...');
         
-        // Create header HTML
+        // Wait for config to be available
+        if (typeof window.HandyWorksConfig === 'undefined') {
+            console.error('HandyWorksConfig not found. Make sure config.js is loaded first.');
+            return;
+        }
+        
+        const config = window.HandyWorksConfig;
+        
+        // Create navigation HTML from config
+        const navItems = config.header.navigation.map(item => 
+            `<li><a href="${item.href}">${item.text}</a></li>`
+        ).join('\n                    ');
+        
+        // Create header HTML from config
         const headerHTML = `
             <div class="header-container">
                 <div class="site-title">
-                    <h1>HandyWorks</h1>
-                    <p>Chiropractic Office Management Software</p>
+                    <h1>${config.header.title}</h1>
+                    <p>${config.header.subtitle}</p>
                 </div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="downloads.html">Downloads</a></li>
-                    <li><a href="story.html">Story</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    ${navItems}
                 </ul>
             </nav>
         `;
 
-        // Create footer HTML
+        // Create footer HTML from config
         const footerHTML = `
-            <p>&copy; 2025 HandyWorks Software. All rights reserved.</p>
+            <p>${config.footer.copyright}</p>
         `;
 
         // Insert header

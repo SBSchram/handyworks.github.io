@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - HandyWorks</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/header-footer.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="site-title">
+                <h1>HandyWorks</h1>
+                <p>Chiropractic Office Management Software</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="story.html">Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Debug Page</h1>
+        <p>This page has the navigation hardcoded to test if the issue is with JavaScript or CSS.</p>
+        <p>If this page shows the navigation correctly, then the issue is with the JavaScript.</p>
+        <p>If this page doesn't show the navigation correctly, then the issue is with the CSS.</p>
+        
+        <div id="debug-info">
+            <h2>Debug Information</h2>
+            <p>JavaScript loaded: <span id="js-status">Checking...</span></p>
+            <p>Current time: <span id="current-time"></span></p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 HandyWorks Software. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Debug script
+        document.getElementById('js-status').textContent = 'JavaScript is working!';
+        document.getElementById('current-time').textContent = new Date().toLocaleString();
+        
+        console.log('Debug page loaded successfully');
+        console.log('Header element:', document.querySelector('header'));
+        console.log('Navigation element:', document.querySelector('nav'));
+    </script>
+</body>
+</html>
