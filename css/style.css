@@ -310,24 +310,146 @@ footer p {
 }
 
 /* Legacy Page Styles */
+body.legacy-page main {
+    padding-top: 0;
+}
+
+.legacy-header {
+    background-color: #008080;
+    color: white;
+    padding: 1.5rem 20px;
+    margin: 0 -20px 2rem -20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.whats-new {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
 .legacy-intro {
     margin: 2rem 0;
-    padding: 1.5rem;
-    background: #f8f9fa;
-    border-radius: 5px;
+    padding: 0;
+}
+
+.legacy-intro a {
+    color: #4169E1;
+    text-decoration: underline;
+}
+
+.logos-section {
+    margin: 2rem 0;
+    background: #f0f0f0;
+    padding: 2rem;
+}
+
+.logo-container {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.handyworks-logo,
+.chargeitpro-logo {
+    flex: 1;
+    max-width: 300px;
+}
+
+.logo-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-hand {
+    font-size: 3rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4169E1;
+    border-radius: 50%;
+    color: white;
+}
+
+.logo-checkmark {
+    font-size: 2.5rem;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #666;
+}
+
+.logo-subtitle {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.upgrade-link-section {
+    margin: 1.5rem 0;
+}
+
+.upgrade-link-section a {
+    color: #4169E1;
+    text-decoration: underline;
 }
 
 .newsletters {
     margin: 2rem 0;
 }
 
-.newsletter-years {
-    background: #f8f9fa;
+.newsletter-grid-container {
+    border: 1px solid #000;
+    display: flex;
+    width: 100%;
+}
+
+.newsletter-label {
+    background: #fff;
     padding: 1rem;
-    border-radius: 5px;
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-    line-height: 1.8;
+    border-right: 1px solid #000;
+    font-weight: bold;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.newsletter-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    flex: 1;
+    background: #f0f0f0;
+}
+
+.newsletter-grid a {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    color: #4169E1;
+    text-decoration: underline;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.newsletter-grid a:hover {
+    background: #e0e0e0;
 }
 
 .update-entry {
