@@ -309,6 +309,74 @@ footer p {
     opacity: 0.8;
 }
 
+/* Legacy Page Styles */
+.legacy-intro {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.newsletters {
+    margin: 2rem 0;
+}
+
+.newsletter-years {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.update-entry {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-left: 4px solid #008080;
+    border-radius: 5px;
+}
+
+.update-entry h3 {
+    color: #008080;
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.update-entry ul {
+    margin: 1rem 0 0 1.5rem;
+    padding: 0;
+}
+
+.update-entry li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.archive-links {
+    margin: 3rem 0;
+}
+
+.archive-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.archive-links li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.archive-links a {
+    color: #008080;
+    text-decoration: none;
+}
+
+.archive-links a:hover {
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     nav ul {
