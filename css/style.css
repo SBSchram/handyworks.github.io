@@ -275,6 +275,31 @@ h3 {
     text-align: left;
 }
 
+/* Story Preview (for About Us page) */
+.story-preview {
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+}
+
+.story-preview h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.story-preview p {
+    margin: 1rem 0;
+    line-height: 1.8;
+}
+
+.story-preview a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+.story-preview a:hover {
+    color: #008080;
+}
+
 .story-image {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
