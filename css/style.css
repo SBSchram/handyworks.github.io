@@ -267,7 +267,12 @@ h3 {
 /* Story Content */
 .story-content {
     line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1rem;
+}
+
+.story-content p {
+    margin: 1rem 0;
+    text-align: left;
 }
 
 .story-image {
