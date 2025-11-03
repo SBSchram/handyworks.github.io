@@ -19,18 +19,18 @@
                 <h1>Contact Us</h1>
                 
                 <div class="contact-form-container">
-                    <form id="contact-form" class="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+                    <form id="contact-form" class="contact-form" method="POST" action="https://formspree.io/f/mldoyenq">
                         <label for="your-name">Your Name (required)</label>
-                        <input type="text" id="your-name" name="your-name" required>
+                        <input type="text" id="your-name" name="name" required>
                         
                         <label for="your-email">Your Email (required)</label>
-                        <input type="email" id="your-email" name="your-email" required>
+                        <input type="email" id="your-email" name="email" required>
                         
                         <label for="tel-888">Phone (required)</label>
-                        <input type="tel" id="tel-888" name="tel-888" placeholder="212-555-1212" required>
+                        <input type="tel" id="tel-888" name="phone" placeholder="212-555-1212" required>
                         
                         <label for="your-message">Message</label>
-                        <textarea id="your-message" name="your-message" rows="6"></textarea>
+                        <textarea id="your-message" name="message" rows="6"></textarea>
                         
                         <input type="hidden" name="_subject" value="New message from Contact Form - HandyWorks">
                         <input type="hidden" name="_replyto" id="_replyto" value="">
@@ -89,13 +89,6 @@
     </footer>
     
     <script>
-        // Handle form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            const emailField = document.getElementById('your-email');
-            const replyToField = document.getElementById('_replyto');
-            replyToField.value = emailField.value;
-        });
-        
         // Handle success message
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('success') === 'true') {
@@ -103,6 +96,20 @@
             messageDiv.textContent = 'Your message has been sent.';
             messageDiv.className = 'form-message success';
         }
+        
+        // Set reply-to email before form submission
+        const form = document.getElementById('contact-form');
+        const emailField = document.getElementById('your-email');
+        const replyToField = document.getElementById('_replyto');
+        
+        emailField.addEventListener('input', function() {
+            replyToField.value = emailField.value;
+        });
+        
+        form.addEventListener('submit', function(e) {
+            // Ensure reply-to is set before submission
+            replyToField.value = emailField.value;
+        });
     </script>
 </body>
 </html>
