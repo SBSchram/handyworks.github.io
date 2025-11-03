@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="css/style.css?v=20250129v1">
+    <title>Contact Us - HandyWorks</title>
+    <link rel="stylesheet" href="css/style.css?v={{VERSION}}">
     <script src="js/config.js?v={{VERSION}}"></script>
     <script src="js/header-footer.js?v={{VERSION}}" defer></script>
 </head>
@@ -14,19 +14,95 @@
     </header>
     
     <main>
-        
+        <div class="content-wrapper">
+            <div class="main-content">
                 <h1>Contact Us</h1>
-                <p>Get in touch with us for support, questions, or more information about HandyWorks.</p>
-                <div class="contact-details">
-                    <h3>Contact Information</h3>
-                    <p>Email: <a href="mailto:steve@handyworks.com">steve@handyworks.com</a></p>
-                    <p>Phone: <a href="tel:888-555-0123">(888) 555-0123</a></p>
+                
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+                        <label for="your-name">Your Name (required)</label>
+                        <input type="text" id="your-name" name="your-name" required>
+                        
+                        <label for="your-email">Your Email (required)</label>
+                        <input type="email" id="your-email" name="your-email" required>
+                        
+                        <label for="tel-888">Phone (required)</label>
+                        <input type="tel" id="tel-888" name="tel-888" placeholder="212-555-1212" required>
+                        
+                        <label for="your-message">Message</label>
+                        <textarea id="your-message" name="your-message" rows="6"></textarea>
+                        
+                        <input type="hidden" name="_subject" value="New message from Contact Form - HandyWorks">
+                        <input type="hidden" name="_replyto" id="_replyto" value="">
+                        <input type="hidden" name="_next" value="?success=true">
+                        
+                        <button type="submit" class="submit-button">Send</button>
+                        
+                        <div id="form-message" class="form-message"></div>
+                    </form>
                 </div>
+                
+                <div class="contact-details">
+                    <p style="text-align: center;">Phone: <a href="tel:212-889-8878">212-889-8878</a></p>
+                    <p style="text-align: center;">Mail: HandyWorks Software<br>140 East 28th Street (Apt 1F)<br>New York, NY 10016</p>
+                </div>
+            </div>
             
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Newsletters</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="legacy.html#newsletters">Winter 2017</a></li>
+                        <li><a href="legacy.html#newsletters">Winter 2016</a></li>
+                        <li><a href="legacy.html#newsletters">Winter 2015</a></li>
+                        <li><a href="legacy.html#newsletters">Winter 2014</a></li>
+                        <li><a href="legacy.html#newsletters">Winter 2013</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Search</h3>
+                    <form class="search-form" action="#" method="get">
+                        <input type="text" name="s" placeholder="Search...">
+                    </form>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Pages</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="downloads.html">Upgrades & Downloads</a></li>
+                        <li><a href="story.html">The HandyWorks Story</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="legacy.html">Legacy</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
     </main>
     
     <footer>
         <!-- Footer content will be inserted by header-footer.js -->
     </footer>
+    
+    <script>
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            const emailField = document.getElementById('your-email');
+            const replyToField = document.getElementById('_replyto');
+            replyToField.value = emailField.value;
+        });
+        
+        // Handle success message
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            const messageDiv = document.getElementById('form-message');
+            messageDiv.textContent = 'Your message has been sent.';
+            messageDiv.className = 'form-message success';
+        }
+    </script>
 </body>
 </html>
