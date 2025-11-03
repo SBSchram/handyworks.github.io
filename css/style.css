@@ -451,13 +451,30 @@ h3 {
     background: #f8f9fa;
     padding: 2rem;
     border-radius: 10px;
-    margin: 2rem 0;
-    text-align: center;
+    margin: 3rem 0 2rem 0;
+    text-align: left;
+    border-top: 3px solid #008080;
 }
 
 .contact-details p {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     line-height: 1.8;
+    font-size: 14px;
+}
+
+.contact-details p:first-child {
+    margin-top: 0;
+}
+
+.contact-details p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-details strong {
+    color: #2c3e50;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 60px;
 }
 
 .contact-details a {
@@ -472,11 +489,6 @@ h3 {
 .contact-details h3 {
     color: #2c3e50;
     margin-bottom: 0.5rem;
-}
-
-.contact-details a {
-    color: #3498db;
-    text-decoration: none;
 }
 
 .contact-details a:hover {
