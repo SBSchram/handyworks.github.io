@@ -22,7 +22,6 @@
                     <li><a href="contact.html">Contact Us</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="features.html">Features</a></li>
-                    <li><a href="story.html">The HandyWorks Story</a></li>
                     <li><a href="downloads.html">Upgrades & Downloads</a></li>
                     <li><a href="legacy.html">Legacy</a></li>
                 </ul>
