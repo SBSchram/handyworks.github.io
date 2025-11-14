@@ -702,6 +702,8 @@ handyworks-website/
 
 **Planner (January 29, 2025):** Step 2 complete - Email forwarding set up in Namecheap (steve@handyworks.com → sbschram@gmail.com). All 4 DNS migration steps are now complete!
 
+**Planner (January 29, 2025):** Added A records for apex domain (handyworks.com) - 4 A records pointing to GitHub Pages IPs. DNS records now complete: 1 CNAME (www) + 4 A records (@). Waiting for DNS propagation to resolve GitHub Pages error.
+
 ---
 
 ## Key Challenges and Analysis
