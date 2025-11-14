@@ -1,0 +1,48 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+*.cache
+
+# WordPress backup (already extracted)
+tmb/
+tmb.zip
+
+# Extracted content (Markdown - HTML versions in blog/)
+extracted_content/posts/
+extracted_content/pages/
+
+# Keep content inventory for reference
+!extracted_content/content_inventory.json
+
+# Build artifacts (if any)
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+
+# Node modules (if using Node.js build tools)
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
