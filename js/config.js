@@ -6,6 +6,8 @@ window.HandyWorksConfig = {
     
     // Header configuration
     header: {
+        logo: 'images/logos/cropped-hwlogo.gif',
+        logoAlt: 'HandyWorks Logo',
         title: 'HandyWorks',
         subtitle: 'Chiropractic Office Management software',
         navigation: [

@@ -23,11 +23,26 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem 20px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo-link {
+    display: block;
+    flex-shrink: 0;
+}
+
+.site-logo {
+    height: 60px;
+    width: auto;
+    display: block;
 }
 
 .site-title {
     text-align: left;
     padding: 1rem 0;
+    flex: 1;
 }
 
 .site-title h1 {

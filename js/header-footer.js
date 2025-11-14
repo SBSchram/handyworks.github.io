@@ -21,8 +21,13 @@
         ).join('\n                    ');
         
         // Create header HTML from config
+        const logoHTML = config.header.logo 
+            ? `<a href="index.html" class="logo-link"><img src="${config.header.logo}" alt="${config.header.logoAlt || 'Logo'}" class="site-logo"></a>`
+            : '';
+        
         const headerHTML = `
             <div class="header-container">
+                ${logoHTML}
                 <div class="site-title">
                     <h1>${config.header.title}</h1>
                     <p>${config.header.subtitle}</p>
