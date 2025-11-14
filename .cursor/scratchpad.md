@@ -343,22 +343,40 @@ handyworks-website/
 
 ### Phase 6: Migration & Cutover (Week 4-5)
 
-#### 6.1 DNS Migration
-**Tasks:**
-- [x] Document current DNS settings (from cPanel) - DNS managed by DNS1.TRKHOSTING.COM
-- [x] Plan DNS cutover - Switching from cPanel to Namecheap BasicDNS
-- [ ] Switch DNS to Namecheap BasicDNS
-- [ ] Set up email forwarding in Namecheap (replacing cPanel email forwarding)
-- [ ] Set up GitHub Pages DNS records in Namecheap
-- [ ] Configure domain in GitHub
-- [ ] Test DNS propagation
-- [ ] Plan rollback procedure
+#### 6.1 DNS Migration - SIMPLIFIED STEP-BY-STEP
+**Current Status:** DNS managed by cPanel (DNS1.TRKHOSTING.COM). Need to switch to Namecheap and set up GitHub Pages.
 
-**Deliverables:**
-- DNS migration plan ✅
-- DNS configuration guide ✅
-- Email forwarding setup guide ✅
-- Rollback plan
+**Simple 4-Step Process:**
+
+**STEP 1: Switch DNS to Namecheap**
+- Go to Namecheap → Domain List → handyworks.com → Manage → Advanced DNS
+- Click "Change" next to nameservers
+- Select "Namecheap BasicDNS"
+- Save
+- Wait 1-2 hours
+
+**STEP 2: Set Up Email Forwarding**
+- After DNS switches, go to Email Forwarding tab in Namecheap
+- Add forwarders for any email addresses you need (e.g., info@handyworks.com → your email)
+- User will tell us which email addresses they need
+
+**STEP 3: Add GitHub Pages DNS Records**
+- In Namecheap Advanced DNS → Host Records
+- Add CNAME: www → sbschram.github.io
+- (Optional) Add 4 A records for apex domain
+
+**STEP 4: Configure GitHub Pages**
+- Go to GitHub repo settings → Pages
+- Enter custom domain: www.handyworks.com
+- Save
+- Wait for DNS propagation (1-24 hours)
+- Enable HTTPS when available
+
+**Tasks:**
+- [ ] Step 1: Switch DNS to Namecheap BasicDNS
+- [ ] Step 2: Set up email forwarding (waiting for user to specify email addresses)
+- [ ] Step 3: Add GitHub Pages DNS records
+- [ ] Step 4: Configure GitHub Pages custom domain
 
 #### 6.2 Content Migration
 **Tasks:**
@@ -672,7 +690,7 @@ handyworks-website/
 
 ## Executor's Feedback or Assistance Requests
 
-**None at this time.** The hybrid blog layout is complete and ready for testing on GitHub Pages.
+**Planner (January 29, 2025):** Simplified DNS migration to 4 clear steps. User will be guided step-by-step without overwhelming documentation.
 
 ---
 
