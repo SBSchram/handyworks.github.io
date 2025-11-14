@@ -12,7 +12,6 @@ window.HandyWorksConfig = {
             { href: 'index.html', text: 'HOME' },
             { href: 'downloads.html', text: 'UPGRADES & DOWNLOADS' },
             { href: 'about.html', text: 'ABOUT HANDYWORKS' },
-            { href: 'partners.html', text: 'PARTNERS' },
             { href: 'contact.html', text: 'CONTACT US' },
             { href: 'legacy.html', text: 'LEGACY' }
         ]
