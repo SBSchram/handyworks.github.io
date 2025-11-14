@@ -18,31 +18,40 @@ This guide will help you migrate the `handyworks.com` domain from WordPress host
 
 **Note:** The CNAME file has been created in the repository with `www.handyworks.com`
 
-## Step 2: DNS Configuration
+## Step 2: DNS Configuration (Namecheap)
 
-You need to add/update DNS records at your domain registrar (where handyworks.com is registered).
+### Namecheap DNS Setup Instructions:
 
-### Required DNS Records:
+1. **Log into Namecheap:**
+   - Go to https://www.namecheap.com
+   - Sign in to your account
+   - Go to "Domain List" → Select "handyworks.com" → Click "Manage"
 
-#### Option A: Using www subdomain (Recommended)
-```
-Type: CNAME
-Name: www
-Value: sbschram.github.io
-TTL: 3600 (or default)
-```
+2. **Choose DNS Management:**
+   - Select "Advanced DNS" tab
+   - You'll see current DNS records
 
-#### Option B: Using apex domain (handyworks.com without www)
-```
-Type: A
-Name: @ (or blank)
-Value: 185.199.108.153
-Value: 185.199.109.153
-Value: 185.199.110.153
-Value: 185.199.111.153
-```
+3. **Add/Update CNAME Record for www:**
+   - Click "Add New Record"
+   - Select **CNAME Record**
+   - **Host:** `www`
+   - **Value:** `sbschram.github.io`
+   - **TTL:** Automatic (or 3600)
+   - Click the checkmark to save
 
-**Note:** GitHub Pages supports both www and apex domains. The CNAME file is set for `www.handyworks.com`.
+4. **For apex domain (handyworks.com without www) - Optional:**
+   - If you want both www and non-www to work:
+   - Click "Add New Record"
+   - Select **A Record**
+   - **Host:** `@` (or leave blank)
+   - **Value:** `185.199.108.153`
+   - Click checkmark
+   - Repeat for these IPs:
+     - `185.199.109.153`
+     - `185.199.110.153`
+     - `185.199.111.153`
+
+**Note:** The CNAME file is set for `www.handyworks.com`, so the www subdomain is required. The apex domain (without www) is optional but recommended.
 
 ### DNS Propagation
 - DNS changes can take 24-48 hours to propagate globally
