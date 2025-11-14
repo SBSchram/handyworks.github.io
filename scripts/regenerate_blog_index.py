@@ -73,8 +73,6 @@ def generate_blog_index_from_html_files(blog_dir='blog', output_file='index.html
     # Generate HTML content
     blog_content = []
     blog_content.append('        <h1>HandyWorks Blog</h1>')
-    blog_content.append('        <p>Latest updates, features, and news about HandyWorks software.</p>')
-    blog_content.append('        ')
     blog_content.append('        <section class="blog-posts">')
     
     for year in sorted(posts_by_year.keys(), reverse=True):

@@ -202,7 +202,7 @@ def generate_blog_index(posts_data, output_file, excerpts_file='blog_excerpts.js
         posts_by_year[year].append(post)
     
     # Generate HTML
-    content = '<h1>HandyWorks Blog</h1>\n        <p>Latest updates, features, and news about HandyWorks software.</p>\n        \n        <section class="blog-posts">'
+    content = '<h1>HandyWorks Blog</h1>\n        \n        <section class="blog-posts">'
     
     for year in sorted(posts_by_year.keys(), reverse=True):
         content += f'\n            <h2>{year}</h2>'
