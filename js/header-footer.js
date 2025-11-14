@@ -36,9 +36,15 @@
         `;
 
         // Create footer HTML from config
-        const footerHTML = `
-            <p>${config.footer.copyright}</p>
-        `;
+        let footerHTML = `<p>${config.footer.copyright}</p>`;
+        
+        // Add footer links if they exist
+        if (config.footer.links && config.footer.links.length > 0) {
+            const footerLinks = config.footer.links.map(link => 
+                `<a href="${link.href}">${link.text}</a>`
+            ).join(' | ');
+            footerHTML += `<p class="footer-links">${footerLinks}</p>`;
+        }
 
         // Insert header
         const header = document.querySelector('header');

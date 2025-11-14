@@ -10,23 +10,6 @@
         
         sidebar.innerHTML = `
             <div class="sidebar-section">
-                <h3>Newsletters</h3>
-                <ul class="sidebar-list">
-                    <li><a href="newsletters.html">View All Newsletters</a></li>
-                    <li><a href="newsletters/W_17.pdf" target="_blank">Winter 2017</a></li>
-                    <li><a href="newsletters/W_16.pdf" target="_blank">Winter 2016</a></li>
-                    <li><a href="newsletters/W_15.pdf" target="_blank">Winter 2015</a></li>
-                    <li><a href="newsletters/W_14.pdf" target="_blank">Winter 2014</a></li>
-                    <li><a href="newsletters/W_13.pdf" target="_blank">Winter 2013</a></li>
-                    <li><a href="newsletters/W_12.pdf" target="_blank">Winter 2012</a></li>
-                    <li><a href="newsletters/W_11.pdf" target="_blank">Winter 2011</a></li>
-                    <li><a href="newsletters/W_10.pdf" target="_blank">Winter 2010</a></li>
-                    <li><a href="newsletters/W_09.pdf" target="_blank">Winter 2009</a></li>
-                    <li><a href="newsletters/W_08.pdf" target="_blank">Winter 2008</a></li>
-                </ul>
-            </div>
-            
-            <div class="sidebar-section">
                 <form class="search-form" id="blog-search-form">
                     <input type="text" placeholder="Search ..." name="search" id="blog-search-input">
                 </form>

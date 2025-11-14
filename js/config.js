@@ -20,7 +20,10 @@ window.HandyWorksConfig = {
     
     // Footer configuration
     footer: {
-        copyright: '&copy; 2025 HandyWorks Software. All rights reserved.'
+        copyright: '&copy; 2025 HandyWorks Software. All rights reserved.',
+        links: [
+            { href: 'newsletters.html', text: 'Newsletter Archive' }
+        ]
     },
     
     // Get cache busted URL for a file
