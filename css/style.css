@@ -1016,17 +1016,18 @@ body.legacy-page main {
 
 /* Footer Styles */
 footer {
-    background-color: #f8f9fa;
-    border-top: 1px solid #e1e8ed;
+    background-color: #ffffff;
+    border-top: 2px solid #e1e8ed;
     padding: 2rem 20px;
     text-align: center;
-    color: #666;
-    font-size: 0.9rem;
+    color: #333;
+    font-size: 0.95rem;
     margin-top: 3rem;
 }
 
 footer p {
     margin: 0.5rem 0;
+    color: #333;
 }
 
 .footer-links {
@@ -1037,6 +1038,7 @@ footer p {
     color: #008080;
     text-decoration: none;
     transition: color 0.2s;
+    font-weight: 500;
 }
 
 .footer-links a:hover {
