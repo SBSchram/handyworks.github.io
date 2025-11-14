@@ -179,8 +179,16 @@ def generate_blog_post_html(post_file, output_dir):
         'categories': categories
     }
 
-def generate_blog_index(posts_data, output_file):
-    """Generate blog archive/index page."""
+def generate_blog_index(posts_data, output_file, excerpts_file='blog_excerpts.json'):
+    """Generate blog archive/index page with excerpts."""
+    
+    import json
+    
+    # Load excerpts
+    excerpts = {}
+    if Path(excerpts_file).exists():
+        with open(excerpts_file, 'r', encoding='utf-8') as f:
+            excerpts = json.load(f)
     
     # Sort posts by date (newest first)
     posts_data.sort(key=lambda x: x['date'], reverse=True)
@@ -199,16 +207,21 @@ def generate_blog_index(posts_data, output_file):
     for year in sorted(posts_by_year.keys(), reverse=True):
         content += f'\n            <h2>{year}</h2>'
         for post in posts_by_year[year]:
+            # Get excerpt
+            excerpt_key = post['url'].replace('blog/', '')
+            excerpt = excerpts.get(excerpt_key, '')
+            
             content += f'''
             <article class="blog-post-summary">
                 <h3><a href="{post['url']}">{escape(post['title'])}</a></h3>
                 <p class="post-date">{post['date']}</p>
                 {f'<p class="post-categories">{post["categories"]}</p>' if post['categories'] else ''}
+                {f'<div class="post-excerpt">{escape(excerpt)}</div>' if excerpt else ''}
             </article>'''
     
     content += '\n        </section>'
     
-    html = get_html_template('Blog - HandyWorks', content, 'blog.html')
+    html = get_html_template('Blog - HandyWorks', content, 'index.html')
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html)
     
@@ -243,7 +256,7 @@ def main():
     
     # Generate blog index
     print("\n📑 Generating blog index...")
-    blog_index = base_path / 'blog.html'
+    blog_index = base_path / 'index.html'  # Homepage is now the blog
     if posts_data:
         generate_blog_index(posts_data, blog_index)
     
