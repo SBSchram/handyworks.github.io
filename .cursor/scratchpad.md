@@ -673,5 +673,62 @@ handyworks-website/
 
 ---
 
-**Status:** Phase 3 (Content Migration) - Blog migration complete, hybrid layout implemented
+## Key Challenges and Analysis
+
+### Blog Post Formatting Issue (January 29, 2025)
+
+**Problem Identified:**
+Blog posts have lost their original formatting during WordPress-to-static conversion:
+- WordPress block comments (`<!-- wp:paragraph -->`, `<!-- wp:list -->`) remain in HTML
+- Malformed HTML structures (nested `<ul>` tags inside list items)
+- Missing proper paragraph spacing
+- Lists not properly formatted (should be single `<ul>` with multiple `<li>` items)
+- No visual distinction between paragraphs
+- Text appears as one continuous block
+
+**Root Cause:**
+The `markdown_to_html()` function in `scripts/generate_html.py` is too basic and doesn't handle:
+1. WordPress block comments that need stripping
+2. Complex HTML structures from WordPress Gutenberg blocks
+3. Proper list formatting (currently creates nested `<ul>` tags)
+4. Paragraph spacing and line breaks
+
+**Proposed DRY Solution:**
+
+1. **Create a Single Content Cleaning Function** (`scripts/clean_wordpress_content.py`):
+   - Strip all WordPress block comments (`<!-- wp:* -->` and `<!-- /wp:* -->`)
+   - Fix malformed list structures (consolidate nested `<ul>` tags)
+   - Ensure proper paragraph spacing
+   - Preserve existing HTML tags (links, bold, italic, headings)
+   - Handle edge cases (empty paragraphs, whitespace)
+
+2. **Create a Batch Processing Script** (`scripts/fix_all_blog_posts.py`):
+   - Iterate through all blog post HTML files
+   - Apply content cleaning function to each
+   - Preserve metadata (title, date, categories)
+   - Regenerate clean HTML with proper formatting
+   - Maintain file structure and URLs
+
+3. **Update CSS for Better Typography** (`css/style.css`):
+   - Add proper paragraph spacing (margin-bottom)
+   - Style lists properly (indentation, bullet points)
+   - Ensure headings have proper hierarchy
+   - Add line-height for readability
+
+**Implementation Approach:**
+- Single source of truth: One content cleaning function used by all scripts
+- Batch processing: Fix all existing posts at once
+- Future-proof: New posts will use the improved conversion pipeline
+- No manual editing: Automated process maintains consistency
+
+**Success Criteria:**
+- All blog posts display with proper paragraph breaks
+- Lists render correctly (single `<ul>` with multiple `<li>` items)
+- No WordPress block comments visible in source
+- Proper spacing and typography throughout
+- All 61 posts formatted consistently
+
+---
+
+**Status:** Phase 3 (Content Migration) - Blog migration complete, hybrid layout implemented. Formatting cleanup needed.
 
