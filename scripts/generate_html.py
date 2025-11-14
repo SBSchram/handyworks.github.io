@@ -204,10 +204,7 @@ def generate_blog_index(posts_data, output_file, excerpts_file='blog_excerpts.js
     # Generate HTML
     content = '<h1>HandyWorks Blog</h1>\n        <p>Latest updates, features, and news about HandyWorks software.</p>\n        \n        <section class="blog-posts">'
     
-    # Filter to only show 2024 and 2025
-    filtered_years = {year: posts for year, posts in posts_by_year.items() if year in ['2024', '2025']}
-    
-    for year in sorted(filtered_years.keys(), reverse=True):
+    for year in sorted(posts_by_year.keys(), reverse=True):
         content += f'\n            <h2>{year}</h2>'
         for post in filtered_years[year]:
             # Get excerpt
