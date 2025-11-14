@@ -345,16 +345,19 @@ handyworks-website/
 
 #### 6.1 DNS Migration
 **Tasks:**
-- [ ] Document current DNS settings (from cPanel)
-- [ ] Plan DNS cutover
-- [ ] Set up GitHub Pages DNS records
+- [x] Document current DNS settings (from cPanel) - DNS managed by DNS1.TRKHOSTING.COM
+- [x] Plan DNS cutover - Switching from cPanel to Namecheap BasicDNS
+- [ ] Switch DNS to Namecheap BasicDNS
+- [ ] Set up email forwarding in Namecheap (replacing cPanel email forwarding)
+- [ ] Set up GitHub Pages DNS records in Namecheap
 - [ ] Configure domain in GitHub
 - [ ] Test DNS propagation
 - [ ] Plan rollback procedure
 
 **Deliverables:**
-- DNS migration plan
-- DNS configuration
+- DNS migration plan ✅
+- DNS configuration guide ✅
+- Email forwarding setup guide ✅
 - Rollback plan
 
 #### 6.2 Content Migration
