@@ -9,7 +9,7 @@ window.HandyWorksConfig = {
         title: 'HandyWorks',
         subtitle: 'Chiropractic Office Management software',
         navigation: [
-            { href: 'blog.html', text: 'BLOG' },
+            { href: 'index.html', text: 'HOME' },
             { href: 'downloads.html', text: 'UPGRADES & DOWNLOADS' },
             { href: 'about.html', text: 'ABOUT HANDYWORKS' },
             { href: 'partners.html', text: 'PARTNERS' },

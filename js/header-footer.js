@@ -62,7 +62,11 @@
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const navLinks = document.querySelectorAll('nav a');
         navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
+            const href = link.getAttribute('href');
+            // Handle index.html and empty path as same
+            if (href === currentPage || 
+                (currentPage === '' && href === 'index.html') ||
+                (currentPage === 'index.html' && href === 'index.html')) {
                 link.classList.add('active');
             }
         });
