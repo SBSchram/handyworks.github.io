@@ -71,36 +71,46 @@ def generate_blog_index_from_html_files(blog_dir='blog', output_file='index.html
         posts_by_year[year].append(post)
     
     # Generate HTML content
-    content_parts = ['<h1>HandyWorks Blog</h1>', 
-                    '<p>Latest updates, features, and news about HandyWorks software.</p>',
-                    '',
-                    '<section class="blog-posts">']
+    blog_content = []
+    blog_content.append('        <h1>HandyWorks Blog</h1>')
+    blog_content.append('        <p>Latest updates, features, and news about HandyWorks software.</p>')
+    blog_content.append('        ')
+    blog_content.append('        <section class="blog-posts">')
     
     for year in sorted(posts_by_year.keys(), reverse=True):
-        content_parts.append(f'            <h2>{year}</h2>')
+        blog_content.append(f'            <h2>{year}</h2>')
         for post in posts_by_year[year]:
             # Get excerpt
             excerpt_key = post['url'].replace('blog/', '')
             excerpt = excerpts.get(excerpt_key, '')
             
-            excerpt_html = f'                <div class="post-excerpt">{escape(excerpt)}</div>' if excerpt else ''
+            excerpt_line = f'                <div class="post-excerpt">{escape(excerpt)}</div>' if excerpt else ''
             
-            content_parts.append(f'''            <article class="blog-post-summary">
-                <h3><a href="{post['url']}">{escape(post['title'])}</a></h3>
-                <p class="post-date">{post['date']}</p>{excerpt_html}
-            </article>''')
+            blog_content.append(f'            <article class="blog-post-summary">')
+            blog_content.append(f'                <h3><a href="{post["url"]}">{escape(post["title"])}</a></h3>')
+            blog_content.append(f'                <p class="post-date">{post["date"]}</p>')
+            if excerpt_line:
+                blog_content.append(excerpt_line)
+            blog_content.append('            </article>')
     
-    content_parts.append('        </section>')
-    new_content = '\n        '.join(content_parts)
+    blog_content.append('        </section>')
+    new_main_content = '\n'.join(blog_content)
     
     # Read the existing index.html
     with open(output_file, 'r', encoding='utf-8') as f:
         existing_html = f.read()
     
-    # Replace everything between <main> and </main>
-    pattern = r'(<main>).*?(</main>)'
-    replacement = r'\1\n        ' + new_content + '\n    \2'
-    new_html = re.sub(pattern, replacement, existing_html, flags=re.DOTALL)
+    # Find and replace the main content
+    main_start = existing_html.find('<main>')
+    main_end = existing_html.find('</main>')
+    
+    if main_start != -1 and main_end != -1:
+        before_main = existing_html[:main_start + 6]  # Include <main>
+        after_main = existing_html[main_end:]  # Include </main>
+        new_html = before_main + '\n' + new_main_content + '\n    ' + after_main
+    else:
+        print("⚠️  Could not find <main> tags, creating new structure")
+        new_html = existing_html
     
     # Write back
     with open(output_file, 'w', encoding='utf-8') as f:
