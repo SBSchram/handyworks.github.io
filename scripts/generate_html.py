@@ -206,7 +206,7 @@ def generate_blog_index(posts_data, output_file, excerpts_file='blog_excerpts.js
     
     for year in sorted(posts_by_year.keys(), reverse=True):
         content += f'\n            <h2>{year}</h2>'
-        for post in filtered_years[year]:
+        for post in posts_by_year[year]:
             # Get excerpt
             excerpt_key = post['url'].replace('blog/', '')
             excerpt = excerpts.get(excerpt_key, '')
@@ -215,7 +215,6 @@ def generate_blog_index(posts_data, output_file, excerpts_file='blog_excerpts.js
             <article class="blog-post-summary">
                 <h3><a href="{post['url']}">{escape(post['title'])}</a></h3>
                 <p class="post-date">{post['date']}</p>
-                {f'<p class="post-categories">{post["categories"]}</p>' if post['categories'] else ''}
                 {f'<div class="post-excerpt">{escape(excerpt)}</div>' if excerpt else ''}
             </article>'''
     
